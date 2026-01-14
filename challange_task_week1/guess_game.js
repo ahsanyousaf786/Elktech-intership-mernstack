@@ -61,17 +61,20 @@ const playGame = async () => {
                 message: `> Attempt ${attemptCount}:`,
                 validate: (input) => {
                     const num = Number(input);
+                    console.log("\n")
                     if (input.trim() === '') {
-                        return 'Invalid input: Please enter a  number.'; 
-                        
+                        console.log( 'Invalid input: Please enter a  number.\n'); 
+                        return null;
                     }
 
                     if (isNaN(num)) {
-                        return 'Invalid input: Please enter a number.';
+                        console.log("Invalid input: Please enter a number.\n")
+                        return null
                     }
 
                     if (num < 1 || num > 100) {
-                        return 'Invalid input: Please choose between 1-100.';
+                    console.log("Invalid input: Please choose between 1-100.\n");
+                    return null
                     }
                     return true;
                 },
@@ -83,7 +86,7 @@ const playGame = async () => {
         // Repeat guess
         if (guesses.includes(guess)) {
             console.log('You already guessed this number! Try a different one.\n');
-            continue; // Do not count attempt
+            return null; // Do not count attempt
         }
 
         guesses.push(guess);
