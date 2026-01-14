@@ -86,7 +86,7 @@ const playGame = async () => {
         // Repeat guess
         if (guesses.includes(guess)) {
             console.log('You already guessed this number! Try a different one.\n');
-            return null; // Do not count attempt
+            continue; // Do not count attempt
         }
 
         guesses.push(guess);
