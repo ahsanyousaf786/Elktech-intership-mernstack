@@ -16,6 +16,17 @@ const winPercentage = () =>
 const averageGuesses = () =>
     totalGames === 0 ? 0 : (totalGuesses / totalGames).toFixed(2);
 
+const askMenu = async ()=>{
+
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'continue',
+            message: 'Press Enter to return to Main Menu...',
+        },
+    ]);
+    mainMenu(); // Return to main menu
+}
 
 // Function to display session stats
 const showStats = async () => {
@@ -29,14 +40,7 @@ const showStats = async () => {
     console.log('=========================\n');
 
     // Press Enter to return to menu
-    await inquirer.prompt([
-        {
-            type: 'input',
-            name: 'continue',
-            message: 'Press Enter to return to Main Menu...',
-        },
-    ]);
-    mainMenu(); // Return to main menu
+    await askMenu()
 };
 
 // ================== Game Logic ==================
@@ -116,19 +120,12 @@ const playGame = async () => {
     }
 
     // Press Enter to return to menu
-    await inquirer.prompt([
-        {
-            type: 'input',
-            name: 'continue',
-            message: 'Press Enter to return to Main Menu...',
-        },
-    ]);
-
-    mainMenu();
+    await askMenu()
 };
 
 // ================== Main Menu ==================
 const mainMenu = async () => {
+    
     console.log('1. Play New Game');
     console.log('2. View Session Stats');
     console.log('3. Exit');
@@ -166,4 +163,5 @@ const mainMenu = async () => {
 console.log('============================')
 console.log('GUESS THE NUMBER: ANALYTICS')
 console.log('============================')
+
 mainMenu();
