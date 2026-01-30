@@ -1,0 +1,5 @@
+[
+  { "id": 1, "username": "Bob", "age": 50, "country": "Mexico" },
+  { "id": 315, "username": "Monkey", "age": 20, "country": "Germany" },
+  { "id": 902, "username": "Banana", "age": 200, "country": "Brazil" }
+]
