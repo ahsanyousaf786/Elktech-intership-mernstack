@@ -1,10 +1,10 @@
-
+import heroImage from '../assets/hero.png'
 
 function Hero() {
     return (
         <div className='hero'>
             <div className="hero-img-section">
-                <img src="src/assets/hero.png" alt="hero-img" />
+                <img src={heroImage} alt="hero-img" />
             </div>
             <div className="hero-text">
                 <h1>HI, I Am Ahsan</h1>
