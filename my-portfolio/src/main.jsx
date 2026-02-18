@@ -1,15 +1,15 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter} from 'react-router-dom'
 import './index.css'
 
-import Navbar from './components/Navbar.jsx'
-import Hero from './components/Hero.jsx'
-import Services from './components/Services.jsx'
+import App from './App.jsx'
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Navbar />
-    <Hero />
-    <Services />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>,
 )
