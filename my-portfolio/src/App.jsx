@@ -7,6 +7,7 @@ import Home from "./pages/Home.jsx";
 import ServicesPage from "./pages/ServicesPage.jsx";
 import Contact from "./pages/Contact.jsx";
 import Projects from "./components/Projects.jsx";
+import Footer from "./components/Footer.jsx";
 
 import "./index.css";
 
@@ -22,6 +23,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
       </Routes>
+
+      <Footer />
     </>
   );
 }

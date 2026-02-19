@@ -116,6 +116,7 @@ body {
   display: flex;
   flex-direction: column;
   border-radius: 15px;
+  border: #1872e0 solid 2px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -390,4 +391,180 @@ body {
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
+}
+
+/* ========= Footer CSS =========  */
+.footer {
+  background-color: #0f172a;
+  color: white;
+  padding: 60px 40px 20px 40px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 15px;
+  color: #1872e0;
+}
+
+.footer-section p {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #1872e0;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #334155;
+  padding-top: 15px;
+  font-size: 14px;
+}
+
+/* ============================= */
+/* ========= RESPONSIVE ========= */
+/* ============================= */
+
+/* -------- Tablets (1024px and below) -------- */
+@media (max-width: 1024px) {
+
+  /* Navbar */
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .navbar-lists ul {
+    gap: 15px;
+  }
+
+  /* Hero */
+  .hero {
+    height: auto;
+  }
+
+  .hero-img-section img {
+    height: 300px;
+  }
+
+  .hero-text {
+    position: static;
+    padding: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  /* Services */
+  .service-card {
+    flex: 0 0 48%;
+  }
+
+  /* About */
+  .about-container {
+    flex-direction: column;
+  }
+
+  /* Projects */
+  .projects-container {
+    justify-content: center;
+  }
+
+  .project-card {
+    flex: 0 0 48%;
+  }
+
+}
+
+
+/* -------- Mobile (768px and below) -------- */
+@media (max-width: 768px) {
+
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .navbar-lists ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Hero */
+  .hero-img-section img {
+    height: 250px;
+  }
+
+  .hero-text {
+    font-size: 1.2rem;
+  }
+
+  /* Services */
+  .services-container {
+    justify-content: center;
+  }
+
+  .service-card {
+    flex: 0 0 100%;
+  }
+
+  /* About */
+  .about-page {
+    padding: 60px 20px;
+  }
+
+  .about-left,
+  .about-right {
+    min-width: 100%;
+  }
+
+  /* Projects */
+  .projects {
+    padding: 60px 20px;
+  }
+
+  .project-card {
+    flex: 0 0 100%;
+  }
+
+  /* Contact */
+  .contact-page {
+    padding: 60px 20px;
+  }
+
+  /* Footer */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
 }
