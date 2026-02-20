@@ -8,7 +8,7 @@ function Footer() {
 
         {/* Left Section */}
         <div className="footer-section">
-          <h3>Sheikh Ahsan</h3>
+          <h3> Ahsan Yousaf </h3>
           <p>
             MERN Stack Developer building scalable full-stack web
             applications with modern technologies.
@@ -41,6 +41,7 @@ function Footer() {
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} Ahsan Yousaf | All Rights Reserved</p>
       </div>
+      
     </footer>
   );
 }
