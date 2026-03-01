@@ -1,68 +1,182 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #E0E0CE;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* ===== MAIN CONTAINER ===== */
+.todo-container {
+  width: 420px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-button {
+/* ===== HEADER ===== */
+.todo-container h1 {
+  text-align: center;
+  color: #AD343E;
+  margin-bottom: 25px;
+  font-size: 32px;
+}
+
+/* ===== FORM SECTION ===== */
+.form form {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* minimal distance */
+}
+
+.todo-input {
+  flex: 1;
+  height: 42px;
+  padding: 0 12px;
+  border: 2px solid #474747;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.todo-input:focus {
+  border-color: #F2AF29;
+}
+
+/* ===== ADD BUTTON ===== */
+.todo-btn {
+  height: 42px;
+  padding: 0 18px;
+  border: none;
+  background-color: #AD343E;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.todo-btn:hover {
+  background-color: #000000;
+}
+
+/* ===== TASK LIST ===== */
+.myUnOrdList {
+  margin-top: 25px;
+}
+
+.myUnOrdList ul {
+  list-style: none;
+}
+
+/* ===== TASK ITEM ===== */
+.todo-item {
+  background: #E0E0CE;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-item span {
+  color: #474747;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* ===== BUTTON GROUP (IMPORTANT FIX) ===== */
+.btn-group {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* minimal distance between check & delete */
+}
+
+/* ===== CHECK & DELETE BUTTONS ===== */
+.check-btn,
+.delete-btn {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 18px;
+  transition: 0.2s ease;
+}
+
+/* Check Button */
+.check-btn {
+  background-color: #F2AF29;
+  color: #000000;
+}
+
+.check-btn:hover {
+  background-color: #000000;
+  color: #F2AF29;
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #AD343E;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #000000;
+  color: #AD343E;
+}
+
+/* ===== CLEAR BUTTON ===== */
+.clear-btn {
+  margin-top: 15px;
+  padding: 8px 14px;
+  border: none;
+  background-color: #AD343E;
+  color: #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.clear-btn:hover {
+  background-color: #000000;
+}
+
+/* ===== DATE & TIME ===== */
+.date-time {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+/* ===== CHECKED TASK =====  */
+
+.checkList{
+  text-decoration: line-through;
+  color: #AD343E;
+}
+
+.notCheckList{
+  text-decoration: none;
 }
