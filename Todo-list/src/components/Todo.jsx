@@ -2,28 +2,16 @@ import React, {useState } from 'react'
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 import TodoDate from './TodoDate';
-
+import { getLocalStorageTodoData, setLocalStorageTodoData } from './TodoLocalStorage';
 
 const Todo = () => {
-
-    // varaible for local storage key
-    const todokey = "todoList";
-
-    const [task, setTask] = useState(()=>{
-        const storedTask = localStorage.getItem(todokey);
-        if(storedTask !== "undefined") { 
-
-            return JSON.parse(storedTask)
-        }else {
-
-            return [];
-        }
-    });
-
+    
+    const [task, setTask] = useState(() => getLocalStorageTodoData());
 
     // hanlde local storage
    
-    localStorage.setItem(todokey, JSON.stringify(task));
+    setLocalStorageTodoData(task);
+  
 
     const handleFormSubmit = (inputValue) => {
 
@@ -33,17 +21,12 @@ const Todo = () => {
 
         if (!trimmedInput) return;
 
-
         const taskMatchedToInput = task.find((curTask) => curTask.content === trimmedInput);
-
 
         if (taskMatchedToInput) return;
 
         setTask((prevTask) => [...prevTask, { id, content, checked }]);
-
-
     }
-
 
     const handleDeleteTodo = (value) => {
 
@@ -54,7 +37,6 @@ const Todo = () => {
     const handleClearAll = () => {
         setTask([]);
     }
-
 
     const handleCheckedTodo = (content) => {
 
@@ -70,9 +52,6 @@ const Todo = () => {
 
         setTask(updatedTask);
     }
-
-
-
 
     return (
 
