@@ -35,9 +35,10 @@ body {
 .form form {
   display: flex;
   align-items: center;
-  gap: 8px; /* minimal distance */
+  gap: 8px;
 }
 
+/* ===== INPUT ===== */
 .todo-input {
   flex: 1;
   height: 42px;
@@ -70,6 +71,25 @@ body {
   background-color: #000000;
 }
 
+/* ===== CLEAR BUTTON ===== */
+.clear-btn {
+  height: 41px;
+  padding: 0 15px;
+  border: none;
+  background-color: #AD343E;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.2s ease;
+  margin-left: 6px;
+}
+
+.clear-btn:hover {
+  background-color: #000000;
+}
+
 /* ===== TASK LIST ===== */
 .myUnOrdList {
   margin-top: 25px;
@@ -77,6 +97,7 @@ body {
 
 .myUnOrdList ul {
   list-style: none;
+  padding: 0;
 }
 
 /* ===== TASK ITEM ===== */
@@ -85,43 +106,46 @@ body {
   padding: 12px 15px;
   margin-bottom: 12px;
   border-radius: 10px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
 }
 
+/* ===== TASK TEXT ===== */
 .todo-item span {
   color: #474747;
   font-weight: 500;
   font-size: 15px;
+  flex: 1;
+  margin-right: 10px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
-/* ===== BUTTON GROUP (IMPORTANT FIX) ===== */
+/* ===== BUTTON GROUP ===== */
 .btn-group {
   display: flex;
   align-items: center;
-  gap: 6px; /* minimal distance between check & delete */
+  gap: 6px;
 }
 
 /* ===== CHECK & DELETE BUTTONS ===== */
 .check-btn,
-.delete-btn {
+.delete-btn,
+.edit-btn {
   width: 38px;
   height: 38px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-size: 18px;
   transition: 0.2s ease;
 }
 
-/* Check Button */
 .check-btn {
   background-color: #F2AF29;
   color: #000000;
@@ -132,7 +156,6 @@ body {
   color: #F2AF29;
 }
 
-/* Delete Button */
 .delete-btn {
   background-color: #AD343E;
   color: white;
@@ -143,24 +166,11 @@ body {
   color: #AD343E;
 }
 
-/* ===== CLEAR BUTTON ===== */
-.clear-btn {
-  margin-top: 15px;
-  padding: 8px 14px;
-  border: none;
-  background-color: #AD343E;
-  color: #ffffff;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
-  transition: 0.2s ease;
-}
 
-.clear-btn:hover {
-  background-color: #000000;
+.edit-btn:hover{
+  background-color: #000;
+  color:  white
 }
-
 /* ===== DATE & TIME ===== */
 .date-time {
   text-align: center;
@@ -170,13 +180,20 @@ body {
   margin-bottom: 20px;
 }
 
-/* ===== CHECKED TASK =====  */
-
-.checkList{
+/* ===== CHECKED TASK ===== */
+.checkList {
   text-decoration: line-through;
   color: #AD343E;
 }
 
-.notCheckList{
+.notCheckList {
   text-decoration: none;
+}
+
+.edit-input {
+    font-size: 1rem;
+    padding: 4px 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 70%;
 }

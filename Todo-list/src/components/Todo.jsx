@@ -1,101 +1,87 @@
-import React, {useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 import TodoDate from './TodoDate';
 import { getLocalStorageTodoData, setLocalStorageTodoData } from './TodoLocalStorage';
 
 const Todo = () => {
-    
     const [task, setTask] = useState(() => getLocalStorageTodoData());
 
-    // hanlde local storage
-   
-   useEffect(()=> {
-    setLocalStorageTodoData(task)
-   }, [task])
-   
+    // Handle local storage
+    useEffect(() => {
+        setLocalStorageTodoData(task)
+    }, [task]);
 
+    // Add a new task
     const handleFormSubmit = (inputValue) => {
-
         const { id, content, checked } = inputValue;
         const trimmedInput = content.trim();
-
         if (!trimmedInput) return;
 
-        const taskMatchedToInput = task.find((curTask) => curTask.content === trimmedInput);
-
+        const taskMatchedToInput = task.find(
+            (curTask) => curTask.content.toLowerCase() === trimmedInput.toLowerCase()
+        );
         if (taskMatchedToInput) return;
 
         setTask((prevTask) => [...prevTask, { id, content, checked }]);
-    }
+    };
 
-    const handleDeleteTodo = (value) => {
-
-        const updatedTask = task.filter((curTask) => curTask.content !== value);
+    // Delete a task
+    const handleDeleteTodo = (content) => {
+        const updatedTask = task.filter((curTask) => curTask.content !== content);
         setTask(updatedTask);
-    }
+    };
 
+    // Clear all tasks
     const handleClearAll = () => {
         setTask([]);
-    }
+    };
 
+    // Toggle check/uncheck
     const handleCheckedTodo = (content) => {
-
-        const updatedTask = task.map((curTask) => {
-            if (curTask.content === content) {
-                return { ...curTask, checked: !curTask.checked }
-            } else {
-
-                return curTask;
-            }
-
-        })
-
+        const updatedTask = task.map((curTask) =>
+            curTask.content === content ? { ...curTask, checked: !curTask.checked } : curTask
+        );
         setTask(updatedTask);
-    }
+    };
+
+    // Edit a task
+    const handleEditTodo = (id, newContent) => {
+        const trimmedContent = newContent.trim();
+        if (!trimmedContent) return;
+
+        setTask((prevTask) =>
+            prevTask.map((t) => (t.id === id ? { ...t, content: trimmedContent } : t))
+        );
+    };
 
     return (
-
         <section className='todo-container'>
             <header>
                 <h1>My Todo List</h1>
-
                 <TodoDate />
-
             </header>
 
-            <TodoForm onAddTodo={handleFormSubmit} />
+            <TodoForm
+                onAddTodo={handleFormSubmit}
+                onClearAll={handleClearAll}
+            />
 
             <section className='myUnOrdList'>
-
                 <ul>
-
-                    {
-                        task.map((curTask) => {
-                            return (
-                                <TodoList
-                                    key={curTask.id}
-                                    curTask={curTask.content}
-                                    checked={curTask.checked}
-                                    handleDeleteTodo={handleDeleteTodo}
-                                    handleCheckedTodo={handleCheckedTodo}
-                                />
-                            );
-                        })
-                    }
-
+                    {task.map((curTask) => (
+                        <TodoList
+                            key={curTask.id}
+                            curTask={curTask}  
+                            handleDeleteTodo={handleDeleteTodo}
+                            handleCheckedTodo={handleCheckedTodo}
+                            handleEditTodo={handleEditTodo}
+                        />
+                    ))}
                 </ul>
-
             </section>
-
-            <section>
-                <button className='clear-btn ' onClick={() => handleClearAll()}>Clear All
-
-                </button>
-            </section>
-
         </section>
-    )
-}
+    );
+};
 
-export default Todo
+export default Todo;
