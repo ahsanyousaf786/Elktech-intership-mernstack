@@ -1,4 +1,4 @@
-import React, {useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 import TodoDate from './TodoDate';
@@ -10,13 +10,14 @@ const Todo = () => {
 
     // hanlde local storage
    
-    setLocalStorageTodoData(task);
-  
+   useEffect(()=> {
+    setLocalStorageTodoData(task)
+   }, [task])
+   
 
     const handleFormSubmit = (inputValue) => {
 
         const { id, content, checked } = inputValue;
-
         const trimmedInput = content.trim();
 
         if (!trimmedInput) return;
