@@ -5,7 +5,7 @@ import TodoDate from './TodoDate';
 import { getLocalStorageTodoData, setLocalStorageTodoData } from './TodoLocalStorage';
 
 const Todo = () => {
-    const [task, setTask] = useState(() => getLocalStorageTodoData());
+    const [task, setTask] = useState(() => getLocalStorageTodoData() || []);
 
     // Handle local storage
     useEffect(() => {

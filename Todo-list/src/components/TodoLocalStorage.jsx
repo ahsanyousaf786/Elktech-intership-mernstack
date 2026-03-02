@@ -1,17 +1,19 @@
 // varaible for local storage key
     const todokey = "todoList";
 
-    const getLocalStorageTodoData = () => {
-        const storedTask = localStorage.getItem(todokey);
-        if(storedTask !== "undefined") { 
-
-            return JSON.parse(storedTask)
-        }else {
-
-            return [];
+  const getLocalStorageTodoData = () => {
+    try {
+        const storedTask = localStorage.getItem("todoList");
+        if (storedTask) {
+            const parsed = JSON.parse(storedTask);
+            return Array.isArray(parsed) ? parsed : [];
         }
+        return [];
+    } catch (error) {
+        console.error("Error reading localStorage:", error);
+        return [];
     }
-
+};
 
     const setLocalStorageTodoData = (task) => {
 
