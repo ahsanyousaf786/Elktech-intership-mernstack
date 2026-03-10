@@ -8,7 +8,8 @@ export const Pokemon = () => {
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
 
-  const API = "https://pokeapi.co/api/v2/pokemon?limit=124";
+  const API = import.meta.env.VITE_API;
+// in react vite we use this method to include .env files 
   
 
   const fetchPokemon = async () => {
