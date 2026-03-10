@@ -219,3 +219,13 @@ pokemon-info {
     cursor: pointer;
   }
 }
+
+
+/* Center the 'No Pokémon found' message */
+.not-found {
+  text-align: center; 
+  width: 100%;                 
+  font-size: 34px;             
+  color: #df4848;              
+  margin: 50px 340px;              
+}

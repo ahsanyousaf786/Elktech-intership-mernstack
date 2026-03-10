@@ -9,8 +9,8 @@ export const Pokemon = () => {
   const [search, setSearch] = useState("");
 
   const API = import.meta.env.VITE_API;
-// in react vite we use this method to include .env files 
-  
+  // in react vite we use this method to include .env files 
+
 
   const fetchPokemon = async () => {
     try {
@@ -22,7 +22,7 @@ export const Pokemon = () => {
         const data = await res.json();
         return data;
       });
-    
+
 
       const detailedResponses = await Promise.all(detailedPokemonData);
       console.log(detailedResponses);
@@ -61,7 +61,7 @@ export const Pokemon = () => {
     );
   }
 
-  
+
 
   return (
     <>
@@ -79,12 +79,14 @@ export const Pokemon = () => {
         </div>
         <div>
           <ul className="cards">
-  
-            {searchData.map((curPokemon) => {
-              return (
+
+            {searchData && searchData.length > 0 ? (
+              searchData.map((curPokemon) => (
                 <PokemonCards key={curPokemon.id} pokemonData={curPokemon} />
-              );
-            })}
+              ))
+            ) : (
+              <p className="not-found">No Pokémon found.</p>
+            )}
           </ul>
         </div>
       </section>
